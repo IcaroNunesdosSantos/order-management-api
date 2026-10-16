@@ -24,4 +24,9 @@ public class ProdutoController {
     public List<Produto> listarProdutos(){
         return produtoService.listarProdutos();
     }
+
+    @DeleteMapping("/{id}")
+    public void deletarProduto(@PathVariable Long id){
+        produtoService.deletar(id);
+    }
 }
