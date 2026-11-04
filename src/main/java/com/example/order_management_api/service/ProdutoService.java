@@ -9,13 +9,14 @@ import java.util.List;
 @Service
 public class ProdutoService {
     private final ProdutoRepository produtoRepository;
+    private final CategoriaService categoriaService;
 
-    public ProdutoService(ProdutoRepository produtoRepository) {
+    public ProdutoService(ProdutoRepository produtoRepository, CategoriaService categoriaService) {
         this.produtoRepository = produtoRepository;
+        this.categoriaService = categoriaService;
     }
 
     public Produto cadastrar(Produto produto){
-
         return produtoRepository.save(produto);
     }
 
