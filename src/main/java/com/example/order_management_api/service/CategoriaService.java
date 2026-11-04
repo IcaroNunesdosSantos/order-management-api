@@ -19,14 +19,13 @@ public class CategoriaService {
         return categoriaRepository.findAll();
     }
 
-    public Categoria cadastrarCategoria(String categoria){
+    public Categoria cadastrarCategoria(Categoria categoria){
         List<Categoria> categorias = buscarCategorias();
         Categoria cate = null;
         Boolean exists = false;
 
-
         for (Categoria cat : categorias) {
-            if(categoria.equals(cat.getNome())){
+            if(categoria.getNome().equals(cat.getNome())){
                 cate = cat;
                 exists = true;
                 break;
@@ -36,11 +35,12 @@ public class CategoriaService {
         if(exists){
             return cate;
         }else{
-            Categoria c1 = new Categoria(categoria);
-            return categoriaRepository.save(c1);
+            return categoriaRepository.save(categoria);
         }
-
     }
 
+    public void deletar(Long id){
+        categoriaRepository.deleteById(id);
+    }
 
 }
