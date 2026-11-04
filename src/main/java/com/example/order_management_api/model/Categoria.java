@@ -1,6 +1,12 @@
 package com.example.order_management_api.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "categoria")
 public class Categoria {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_categoria;
     private String nome;
 
@@ -8,8 +14,7 @@ public class Categoria {
 
     }
 
-    public Categoria(Integer id_categoria, String nome) {
-        this.id_categoria = id_categoria;
+    public Categoria(String nome) {
         this.nome = nome;
     }
 

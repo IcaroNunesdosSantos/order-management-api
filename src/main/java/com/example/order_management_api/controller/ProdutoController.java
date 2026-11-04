@@ -17,6 +17,8 @@ public class ProdutoController {
 
     @PostMapping
     public Produto cadastrar(@RequestBody Produto produto){
+
+
         return produtoService.cadastrar(produto);
     }
 
